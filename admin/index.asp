@@ -1,0 +1,1 @@
+<%response.Redirect("system_login.asp")%>
