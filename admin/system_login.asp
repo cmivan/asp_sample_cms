@@ -3,17 +3,17 @@
 <%
 username = request.form("username")
 password = md5(request.form("password"))
-verifycode = request.form("verifycode") 
+verifycode = request.form("verifycode")
 action = request.form("action")
 
 if action="admin.login" then
 
 	if username = "" then call alert.reFresh("用户名不能为空!","?")
 	if password = "" then call alert.reFresh("密码不能为空!","?")
-	if verifycode= "" then call alert.reFresh("验证码不能为空!","?") 
+	if verifycode= "" then call alert.reFresh("验证码不能为空!","?")
 	if cstr(session("cmcms.code.num"))<>cstr(verifycode) then call alert.reFresh("验证码错误!","?")
 
-	set rs = sysconn.execute("select top 1 * from sys_admin where username='"&username&"' and password='"&password&"'") 
+	set rs = sysconn.execute("select top 1 * from sys_admin where username='"&username&"' and password='"&password&"'")
 		if rs.eof or rs.bof then
 		   call alert.reFresh("帐号或者密码错误，请重新输入!","?")
 		else

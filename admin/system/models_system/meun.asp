@@ -46,7 +46,7 @@ set rs = sysconn.execute("select * from sys_nav where type_id=0 and show=1 order
 <!-- Item Strat -->
 <dl>
 <%
-if rs("url")<>"" then 
+if rs("url")<>"" then
    thisUrl=urlPath&rs("url")
 else
    thisUrl="javascript:void(0);"
@@ -67,17 +67,17 @@ if arr_nav(0)<>"" and arr_nav(1)<>"" and arr_nav(2)<>"" and isnumeric(arr_nav(2)
 %>
 <li><a target="main" href="<%=urlPath&arr_nav(1)%>/article_manage.asp"><%=arr_nav(0)%>管理</a></li>
 <li><a target="main" href="<%=urlPath&arr_nav(1)%>/article_edit.asp"><%=arr_nav(0)%>添加</a></li>
-<%		  
+<%
 		   case 3    '管理、添加、分类菜单具备
 %>
 <li><a target="main" href="<%=urlPath&arr_nav(1)%>/article_manage.asp"><%=arr_nav(0)%>管理</a></li>
 <li><a target="main" href="<%=urlPath&arr_nav(1)%>/article_edit.asp"><%=arr_nav(0)%>添加</a></li>
 <li><a target="main" href="<%=urlPath&arr_nav(1)%>/article_type.asp"><%=arr_nav(0)%>分类</a></li>
-<%	
+<%
 		   case else '只有管理菜单
 %>
 <li><a target="main" href="<%=urlPath&arr_nav(1)%>/article_manage.asp"><%=arr_nav(0)%>管理</a></li>
-<%	   
+<%
     end select
 end if
 end if
@@ -118,7 +118,7 @@ end if
 	set js=nothing
 %>
 </ul></dd></dl>
-<%		
+<%
 	rs.movenext
 	loop
  end if

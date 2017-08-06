@@ -42,8 +42,8 @@ set rs=server.CreateObject("adodb.recordset")
 	rs("editbox")=editbox
 	session("user_editbox")= editbox
 
-    rs.update 
-    rs.close 
+    rs.update
+    rs.close
 set rs=nothing
 
 if err=0 then call alert.reFresh("账号信息保存成功,请牢记!","?")
@@ -93,7 +93,7 @@ function check(){
 <tr class="forumRow">
 <td align="right">称呼：</td>
 <td><input name="truename" type="text" size="30" /></td>
-</tr>		  
+</tr>
 
 <tr class="forumRow">
 <td align="right">密码：</td>
@@ -135,11 +135,11 @@ set rs=nothing
 </table>
 <%else%>
 
-<% 
+<%
 set rs=sysconn.execute("select * from sys_admin where id="&session("user_id"))
-    rs.open exec,sysconn,1,1 
+    rs.open exec,sysconn,1,1
 	if not rs.eof then
-	
+
 	db_title = "帐号管理"
 %>
 
@@ -155,7 +155,7 @@ set rs=sysconn.execute("select * from sys_admin where id="&session("user_id"))
 <tr class="forumRow">
 <td align="right">称呼：</td>
 <td><input name="truename" type="text" value="<%=rs("truename")%>" size="30" /></td>
-</tr>		  
+</tr>
 
 <tr class="forumRow">
 <td align="right">密码：</td>
@@ -214,7 +214,7 @@ set rs=nothing
 <td align="left">&nbsp;称呼</td>
 <td width="50" align="center">操作</td>
 </tr>
-<% 
+<%
 set rs=sysconn.execute("select * from sys_admin where power<>1 and super<>1")
     do while not rs.eof
 %>
